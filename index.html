@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="container">
+        <h1 class="header-title">Tasks</h1>
+    </header>
+
+    <div class="container tasks-area">
+        <button type="button" class="btn-new-task btn">New</button>
+        <ul class="tasks-list">
+        </ul>
+        <div class="tasks-actions">
+            <a type="button" id="export-tasks" class="btn">Export</a>
+            <label for="import-tasks" class="btn import-tasks">Import</label>
+            <input type="file" id="import-tasks" onchange="importTasks()" accept=".json" name="import-tasks" />
+            <a type="button" id="clear-tasks" class="btn">Clear tasks</a>
+        </div>
+    </div>
+
+    <div class="back-new-task hidden">
+        <div class="modal-new-task">
+            <p>Task name</p>
+            <input type="text" name="task" id="task" />
+            <button type="button" class="btn-new-task btn-add btn">Add</button>
+        </div>
+    </div>
+
+     <div class="back-delete-tasks hidden">
+        <div class="modal-delete-tasks">
+            <p>Are you sure you want to delete all tasks?</p>
+            <button type="button" id="delete-tasks" class="btn">Yes</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h1>Created by <strong>fdiasDev 🚀</strong></h1>
+    </footer>
+
+    <script src="./main.js"></script>
+    <script type="module" src="./task.js"></script>
+    <script type="module" src="./storage.js"></script>
+    <script type="module" src="./file.js"></script>
+</body>
+
+</html>
