@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TodoX</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/modal.css">
 </head>
 
 <body>
@@ -14,13 +15,13 @@
         <h1 class="header-title">Tasks</h1>
     </header>
 
-    <div class="container tasks-area">
-        <button type="button" class="btn-new-task btn">New</button>
+    <div class="container tasks">
+        <button type="button" class="tasks-btn-new-task btn">New</button>
         <ul class="tasks-list">
         </ul>
         <div class="tasks-actions">
             <a type="button" id="export-tasks" class="btn">Export</a>
-            <label for="import-tasks" class="btn import-tasks">Import</label>
+            <label for="import-tasks" class="btn tasks-actions-import">Import</label>
             <input type="file" id="import-tasks" onchange="importTasks()" accept=".json" name="import-tasks" />
             <a type="button" id="clear-tasks" class="btn">Clear tasks</a>
         </div>
@@ -30,14 +31,20 @@
         <div class="modal-new-task">
             <p>Task name</p>
             <input type="text" name="task" id="task" />
-            <button type="button" class="btn-new-task btn-add btn">Add</button>
+            <button type="button" class="tasks-btn-new-task btn-add-task btn">Add</button>
         </div>
     </div>
 
-     <div class="back-delete-tasks hidden">
+    <div class="back-delete-tasks hidden">
         <div class="modal-delete-tasks">
             <p>Are you sure you want to delete all tasks?</p>
             <button type="button" id="delete-tasks" class="btn">Yes</button>
+        </div>
+    </div>
+
+    <div class="back-task-view">
+        <div class="modal-task-view">
+
         </div>
     </div>
 
@@ -49,6 +56,7 @@
     <script type="module" src="./js/task.js"></script>
     <script type="module" src="./js/storage.js"></script>
     <script type="module" src="./js/file.js"></script>
+    <script type="module" src="./js/util.js"></script>
 </body>
 
 </html>

@@ -70,11 +70,11 @@ input[type="file"] {
     padding: 5px 15px;
 }
 
-.btn-new-task {
+.tasks-btn-new-task{
     background-color: #58b200;
 }
 
-.btn-new-task:hover {
+.tasks-btn-new-task:hover {
     background-color: #50a200;
 }
 
@@ -92,51 +92,7 @@ input[type="file"] {
     margin-bottom: 5px;
     padding-left: 20px;
     border-bottom: 2px solid #3b86e8;
-}
-
-.back-new-task,
-.back-delete-tasks {
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .3);
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center
-}
-
-.modal-new-task {
-    width: 700px;
-    height: 150px;
-    background-color: #f2f2f2;
-    padding: 20px 30px;
-    border-radius: 3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.modal-new-task>p {
-    font-size: 1.2rem;
-}
-
-.modal-new-task>input {
-    padding: 5px;
-    outline: none;
-    border: 1px solid #2b2b2b;
-    transition: all .3s;
-    border-radius: 3px;
-}
-
-.modal-new-task>input:focus {
-    border-color: #386db2;
-}
-
-.btn-add {
-    align-self: flex-end;
+    cursor: pointer;
 }
 
 .tasks-actions {
@@ -148,7 +104,7 @@ input[type="file"] {
     text-decoration: none;
 }
 
-.import-tasks {
+.tasks-actions-import {
     margin-left: 20px;
     background-color: #353535;
 }
@@ -160,21 +116,6 @@ input[type="file"] {
 
 #delete-tasks {
     background-color: #b20000;
-}
-
-.modal-delete-tasks {
-    width: 700px;
-    height: 100px;
-    background-color: #f2f2f2;
-    padding: 20px 30px;
-    border-radius: 3px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.modal-delete-tasks p{
-    font-size: 1.3rem;
 }
 
 .footer{

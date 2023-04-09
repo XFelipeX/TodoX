@@ -1,4 +1,4 @@
-import { tasksList } from "./task.js";
+const tasksList = document.querySelector(".tasks-list");
 
 function checkLocalTasks() {
   const todox = JSON.parse(localStorage.getItem("todox"));
@@ -12,9 +12,7 @@ function checkLocalTasks() {
   }
 }
 
-window.onload = function () {
-  checkLocalTasks();
-};
+checkLocalTasks();
 
 export function addTasksOnLocalStorage(todox) {
   window.todox = todox;
