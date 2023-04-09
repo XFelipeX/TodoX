@@ -1,7 +1,7 @@
 import { tasksList } from "./task.js";
 
 function checkLocalTasks() {
-  const todox = JSON.parse(localStorage.getItem("tasks"));
+  const todox = JSON.parse(localStorage.getItem("todox"));
   if (todox) {
     window.todox = todox;
     window.todox.tasks.forEach((task) => {
