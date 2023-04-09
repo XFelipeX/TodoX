@@ -2,13 +2,12 @@ import { tasksList } from "./task.js";
 
 // Export json file
 function generateJson() {
-  var dados = tasks;
-  var json = JSON.stringify(dados);
-  var blob = new Blob([json], { type: "application/json;charset=utf-8" });
-  var link = document.getElementById("export-tasks");
+  let dados = window.todox;
+  let json = JSON.stringify(dados);
+  let blob = new Blob([json], { type: "application/json;charset=utf-8" });
+  let link = document.getElementById("export-tasks");
   link.setAttribute("href", URL.createObjectURL(blob));
   link.setAttribute("download", "TASKS-" + getCurrentDate() + ".json");
-  console.log();
 }
 
 function getCurrentDate() {
@@ -28,10 +27,10 @@ window.importTasks = function () {
   // Read file
   const reader = new FileReader();
   reader.onload = function (event) {
-    tasks = JSON.parse(event.target.result);
+    window.todox = JSON.parse(event.target.result);
     // Import
     tasksList.innerHTML = "";
-    tasks.forEach((task) => {
+    window.todox.tasks.forEach((task) => {
       let li = document.createElement("li");
       li.innerText = task.name;
       tasksList.appendChild(li);

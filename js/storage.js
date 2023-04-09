@@ -1,31 +1,30 @@
 import { tasksList } from "./task.js";
 
 function checkLocalTasks() {
-  const localTasks = JSON.parse(localStorage.getItem("tasks"));
-  if (localTasks) {
-    localTasks.forEach((task) => {
-      tasks.push(task);
+  const todox = JSON.parse(localStorage.getItem("tasks"));
+  if (todox) {
+    window.todox = todox;
+    window.todox.tasks.forEach((task) => {
+      const li = document.createElement("li");
+      li.innerText = task.name;
+      tasksList.appendChild(li);
     });
   }
-  window.tasks.forEach((task) => {
-    const li = document.createElement("li");
-    li.innerText = task.name;
-    tasksList.appendChild(li);
-  });
 }
 
 window.onload = function () {
   checkLocalTasks();
 };
 
-export function addTasksOnLocalStorage(tasks) {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+export function addTasksOnLocalStorage(todox) {
+  window.todox = todox;
+  localStorage.setItem("todox", JSON.stringify(window.todox));
 }
 
 export function getTasksOnLocalStorage() {
-  return JSON.parse(localStorage.getItem("tasks"));
+  return JSON.parse(localStorage.getItem("todox"));
 }
 
 export function clearTasksOnLocalStorage() {
-  localStorage.setItem("tasks", JSON.stringify([]));
+  localStorage.setItem("todox", JSON.stringify({}));
 }

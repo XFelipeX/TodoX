@@ -1,12 +1,14 @@
-import {
-  getTasksOnLocalStorage,
-  addTasksOnLocalStorage,
-  clearTasksOnLocalStorage,
-} from "./storage.js";
+import { addTasksOnLocalStorage, clearTasksOnLocalStorage } from "./storage.js";
 const backModal = document.querySelector(".back-new-task");
 const newTaskBtn = document.querySelector(".btn-new-task");
 const addTaskBtn = document.querySelector(".btn-add");
 const tasksList = document.querySelector(".tasks-list");
+
+window.todox = {
+  name: "TodoX",
+  version: "1.0",
+  tasks: [],
+};
 
 window.tasks = [];
 
@@ -32,13 +34,10 @@ function addNewTask() {
   tasksList.appendChild(newTaskEle);
 
   // List of objects
-  tasks.push(new Task(input.value));
+  window.todox.tasks.push(new Task(input.value));
 
   // localstorage
-  let localTasks = getTasksOnLocalStorage();
-  if (localTasks == null) localTasks = [];
-  localTasks.push(new Task(input.value));
-  addTasksOnLocalStorage(localTasks);
+  addTasksOnLocalStorage(window.todox);
 
   // reset
   input.value = "";
