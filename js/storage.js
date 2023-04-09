@@ -26,5 +26,5 @@ export function getTasksOnLocalStorage() {
 }
 
 export function clearTasksOnLocalStorage() {
-  localStorage.setItem("todox", JSON.stringify({}));
+  localStorage.setItem("todox", null);
 }

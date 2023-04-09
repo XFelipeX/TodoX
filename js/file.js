@@ -1,3 +1,4 @@
+import { addTasksOnLocalStorage } from "./storage.js";
 import { tasksList } from "./task.js";
 
 // Export json file
@@ -35,7 +36,7 @@ window.importTasks = function () {
       li.innerText = task.name;
       tasksList.appendChild(li);
       // localstorage
-      localStorage.setItem("tasks", JSON.stringify(tasks));
+      addTasksOnLocalStorage(window.todox);
     });
   };
   reader.readAsText(document.getElementById("import-tasks").files[0]);
