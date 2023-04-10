@@ -7,6 +7,7 @@ function checkLocalTasks() {
     window.todox.tasks.forEach((task) => {
       const li = document.createElement("li");
       li.innerText = task.name;
+      li.setAttribute("id", task.id);
       tasksList.appendChild(li);
     });
   }
@@ -25,4 +26,9 @@ export function getTasksOnLocalStorage() {
 
 export function clearTasksOnLocalStorage() {
   localStorage.setItem("todox", null);
+  window.todox.tasks = [];
 }
+
+window.addEventListener("beforeunload", function () {
+  addTasksOnLocalStorage(window.todox);
+});
