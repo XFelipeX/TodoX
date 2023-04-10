@@ -1,5 +1,6 @@
 .back-new-task,
-.back-delete-tasks {
+.back-delete-tasks,
+.back-task-view {
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, .3);
@@ -15,16 +16,18 @@
 .modal-new-task {
     width: 700px;
     height: 150px;
-    background-color: #f2f2f2;
+    background-color: #2b2b2b;
     padding: 20px 30px;
     border-radius: 3px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid #000;
 }
 
 .modal-new-task>p {
     font-size: 1.2rem;
+    color: #fff;
 }
 
 .modal-new-task>input {
@@ -44,16 +47,97 @@
 }
 
 .modal-delete-tasks {
-    width: 700px;
+    width: 800px;
     height: 100px;
-    background-color: #f2f2f2;
+    background-color: #2b2b2b;
     padding: 20px 30px;
     border-radius: 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid #000;
 }
 
 .modal-delete-tasks p{
     font-size: 1.3rem;
+    color: #fff;
+}
+
+.modal-task-view{
+  color: #fff;
+   width: 100%;
+    height: 420px;
+    background-color: #202020;
+    padding: 20px 30px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-tv-header{
+  display: flex;
+  height: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-tv-task-progress{
+  width: 80%;
+  background-color: #353535;
+  border-radius: 5px;
+}
+
+.modal-tv-task-progress::-webkit-progress-bar {
+   border-radius: 5px;
+    background-color: #353535;
+}
+
+.modal-tv-task-progress::-webkit-progress-value {
+    background-color: #3b86e8;
+     border-radius: 5px;
+}
+
+.modal-tv-percent{
+  align-self: flex-end;
+  letter-spacing: 2px;
+  height: auto;
+  box-sizing: border-box;
+  padding: 15px 0px;
+}
+
+.modal-tv-topics{
+  margin-top: 0;
+  height: 250px;
+}
+
+.modal-tv-topics li{
+  cursor: default;
+  padding: 10px 15px;
+}
+
+.modal-tv-topics-topic{
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-tv-topics-topic > label{
+  width: 90%;
+}
+
+.modal-tv-create-topic{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-tv-create-topic input{
+  width: 85%;
+  background-color: #353535;
+  outline: none;
+  border: none;
+  padding: 5px;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 1rem;
 }

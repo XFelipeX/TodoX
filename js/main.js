@@ -8,6 +8,4 @@ function startApp() {
   }
 }
 
-window.onload = function () {
-  startApp();
-};
+startApp();

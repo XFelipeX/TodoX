@@ -1,55 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TodoX</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/modal.css">
-</head>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+  </head>
 
-<body>
+  <body>
     <header class="container">
-        <h1 class="header-title">Tasks</h1>
+      <h1 class="header-title">Tasks</h1>
     </header>
 
     <div class="container tasks">
-        <button type="button" class="tasks-btn-new-task btn">New</button>
-        <ul class="tasks-list">
-        </ul>
-        <div class="tasks-actions">
-            <a type="button" id="export-tasks" class="btn">Export</a>
-            <label for="import-tasks" class="btn tasks-actions-import">Import</label>
-            <input type="file" id="import-tasks" onchange="importTasks()" accept=".json" name="import-tasks" />
-            <a type="button" id="clear-tasks" class="btn">Clear tasks</a>
-        </div>
+      <button type="button" class="tasks-btn-new-task btn">New</button>
+      <ul class="tasks-list"></ul>
+      <div class="tasks-actions">
+        <a type="button" id="export-tasks" class="btn">Export</a>
+        <label for="import-tasks" class="btn tasks-actions-import"
+          >Import</label
+        >
+        <input
+          type="file"
+          id="import-tasks"
+          onchange="importTasks()"
+          accept=".json"
+          name="import-tasks"
+        />
+        <a type="button" id="clear-tasks" class="btn">Clear tasks</a>
+      </div>
     </div>
 
     <div class="back-new-task hidden">
-        <div class="modal-new-task">
-            <p>Task name</p>
-            <input type="text" name="task" id="task" />
-            <button type="button" class="tasks-btn-new-task btn-add-task btn">Add</button>
-        </div>
+      <div class="modal-new-task">
+        <p>Task name</p>
+        <input type="text" name="task" id="task" />
+        <button type="button" class="tasks-btn-new-task btn-add-task btn">
+          Add
+        </button>
+      </div>
     </div>
 
     <div class="back-delete-tasks hidden">
-        <div class="modal-delete-tasks">
-            <p>Are you sure you want to delete all tasks?</p>
-            <button type="button" id="delete-tasks" class="btn">Yes</button>
-        </div>
+      <div class="modal-delete-tasks container">
+        <p>Are you sure you want to delete all tasks?</p>
+        <button type="button" id="delete-tasks" class="btn">Yes</button>
+      </div>
     </div>
 
     <div class="back-task-view">
-        <div class="modal-task-view">
-
+      <div class="modal-task-view container">
+        <div class="modal-tv-header">
+          <h2>Portfolio</h2>
+          <progress class="modal-tv-task-progress" value="30" max="100" />
         </div>
+        <p class="modal-tv-percent">30% Items done</p>
+        <ul class="modal-tv-topics tasks-list">
+            <li class="modal-tv-topics-topic"><label for="32432">Fazer isso</label><input type="checkbox" id="32432" name="32432" value="Fazer isso"></li>
+        </ul>
+        <div class="modal-tv-create-topic">
+            <input type="text" name="create-topic" id="create-topic" autofocus/>
+            <button type="button" class="btn tasks-btn-new-task">Create</button>
+        </div>
+      </div>
     </div>
 
     <footer class="footer">
-        <h1>Created by <strong>fdiasDev 🚀</strong></h1>
+      <h1>Created by <strong>fdiasDev 🚀</strong></h1>
     </footer>
 
     <script src="./js/main.js"></script>
@@ -57,6 +76,5 @@
     <script type="module" src="./js/storage.js"></script>
     <script type="module" src="./js/file.js"></script>
     <script type="module" src="./js/util.js"></script>
-</body>
-
+  </body>
 </html>
