@@ -26,6 +26,7 @@ function addTopic() {
   window.todox.tasks[taskIndex].topics.push(topic);
   addTopicOnHtml(topic);
   percentModalTaskView.innerText = calcNewPercent(taskIdToModal);
+  progressBar.setAttribute('value', calcNewPercent(taskIdToModal));
   document.querySelector('#create-topic').value = '';
 }
 
@@ -46,7 +47,6 @@ export function addTopicOnHtml(topic) {
     changeStateTopic(topic);
   });
   const newPercent = calcNewPercent(taskIdToModal);
-  progressBar.setAttribute('value', calcNewPercent);
   const taskLi = document.getElementById(taskIdToModal);
   const percentOnInitialScreen = taskLi.querySelector('.tasks-list-percent');
   percentOnInitialScreen.innerText = newPercent + '%';
