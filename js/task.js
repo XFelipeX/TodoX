@@ -1,4 +1,4 @@
-import { addTopicOnHtml } from './topic.js';
+import { addTopicOnHtml } from './Topic.js';
 import { clearTasksOnLocalStorage } from './storage.js';
 import { generateUUID } from './util.js';
 const newTaskBtn = document.querySelector('.tasks-btn-new-task');
@@ -43,14 +43,18 @@ function addNewTask() {
   if (input.value == '') return;
   let task = new Task(input.value);
   // HTML element
-  const newTaskEle = document.createElement('li');
-  newTaskEle.innerText = input.value;
-  newTaskEle.setAttribute('id', task.id);
+  const li = document.createElement('li');
+  const percent = document.createElement('span');
+  percent.classList.add('tasks-list-percent');
+  percent.innerText = task.percent + '%';
+  li.innerText = input.value;
+  li.setAttribute('id', task.id);
   // modal to see topics of the task
-  newTaskEle.addEventListener('click', function () {
-    showTaskModal(newTaskEle.getAttribute('id'));
+  li.addEventListener('click', function () {
+    showTaskModal(li.getAttribute('id'));
   });
-  tasksList.appendChild(newTaskEle);
+  li.appendChild(percent);
+  tasksList.appendChild(li);
 
   // List of tasks
   window.todox.tasks.push(task);
@@ -60,7 +64,7 @@ function addNewTask() {
   document.querySelector('.back-new-task').classList.add('hidden');
 }
 
-function showTaskModal(taskId) {
+export function showTaskModal(taskId) {
   let task = window.todox.tasks.filter((value) => value.id === taskId)[0];
   taskIdToModal = task.id;
   // update info
@@ -107,7 +111,6 @@ export function calcNewPercent(taskId) {
   let done = task.topics.filter((topic) => topic.done === true).length;
 
   let percent = (done / total) * 100;
-  console.log(percent);
   return percent.toFixed(0);
 }
 

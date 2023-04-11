@@ -45,7 +45,11 @@ export function addTopicOnHtml(topic) {
   input.addEventListener('click', function () {
     changeStateTopic(topic);
   });
-  progressBar.setAttribute('value', calcNewPercent(taskIdToModal));
+  const newPercent = calcNewPercent(taskIdToModal);
+  progressBar.setAttribute('value', calcNewPercent);
+  const taskLi = document.getElementById(taskIdToModal);
+  const percentOnInitialScreen = taskLi.querySelector('.tasks-list-percent');
+  percentOnInitialScreen.innerText = newPercent + '%';
   listOfTopics.appendChild(li);
 }
 
@@ -60,6 +64,10 @@ function changeStateTopic(topic) {
   window.todox.tasks[taskIndex].topics[topicIndex].done = !topic.done;
 
   // update percent
-  progressBar.setAttribute('value', calcNewPercent(taskIdToModal));
-  percentModalTaskView.innerText = calcNewPercent(taskIdToModal);
+  const newPercent = calcNewPercent(taskIdToModal);
+  progressBar.setAttribute('value', newPercent);
+  percentModalTaskView.innerText = newPercent;
+  const taskLi = document.getElementById(taskIdToModal);
+  const percentOnInitialScreen = taskLi.querySelector('.tasks-list-percent');
+  percentOnInitialScreen.innerText = newPercent + '%';
 }
