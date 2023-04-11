@@ -1,4 +1,4 @@
-import { addTopicOnHtml } from './Topic.js';
+import { addTopicOnHtml } from './topic.js';
 import { clearTasksOnLocalStorage } from './storage.js';
 import { generateUUID } from './util.js';
 const newTaskBtn = document.querySelector('.tasks-btn-new-task');
@@ -7,6 +7,7 @@ const tasksList = document.querySelector('.tasks-list');
 const backModals = document.querySelectorAll('[class^="back"]');
 const clearTasksBtn = document.querySelector('#clear-tasks');
 const deleteTasksBtn = document.querySelector('#delete-tasks');
+const progressBar = document.querySelector('.modal-tv-task-progress');
 const percentModalTaskView = document.querySelector('.modal-tv-percent span');
 let taskIdToModal = null;
 
@@ -77,8 +78,9 @@ export function showTaskModal(taskId) {
   task.topics.forEach((topic) => {
     addTopicOnHtml(topic);
   });
-  percentModalTaskView.innerText = calcNewPercent(task.id);
-
+  const newPercent = calcNewPercent(taskIdToModal);
+  percentModalTaskView.innerText = newPercent;
+  progressBar.setAttribute('value', newPercent);
   // show modal
   document.querySelector('.back-task-view').classList.remove('hidden');
 }
