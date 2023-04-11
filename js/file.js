@@ -7,6 +7,7 @@ document.querySelector('#export-tasks').addEventListener('click', generateJson);
 // Export json file
 function generateJson() {
   let dados = window.todox;
+  if (dados.tasks.length === 0) return;
   let json = JSON.stringify(dados);
   let blob = new Blob([json], { type: 'application/json;charset=utf-8' });
   let link = document.getElementById('export-tasks');
