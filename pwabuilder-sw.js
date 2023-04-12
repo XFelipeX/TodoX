@@ -62,20 +62,33 @@ self.addEventListener('fetch', (event) => {
   //   );
   // }
 
-  event.respondWith(
-    caches.match(event.request).then(function (response) {
-      // get cache
-      if (response) {
-        return response;
-      }
+  // event.respondWith(
+  //   caches.match(event.request).then(function (response) {
+  //     // get cache
+  //     if (response) {
+  //       return response;
+  //     }
 
-      // return cache
-      return fetch(event.request).then(function (response) {
-        return caches.open(CACHE).then(function (cache) {
-          cache.put(event.request.url, response.clone());
-          return response;
-        });
-      });
-    }),
+  //     // return cache
+  //     return fetch(event.request).then(function (response) {
+  //       return caches.open(CACHE).then(function (cache) {
+  //         cache.put(event.request.url, response.clone());
+  //         return response;
+  //       });
+  //     });
+  //   }),
+  // );
+
+  event.respondWith(
+    (async function () {
+      try {
+        var res = await fetch(event.request);
+        var cache = await caches.open(CACHE);
+        cache.put(event.request.url, res.clone());
+        return res;
+      } catch (error) {
+        return caches.match(event.request);
+      }
+    })(),
   );
 });
