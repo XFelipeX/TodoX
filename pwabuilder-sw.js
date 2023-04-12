@@ -17,7 +17,22 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('install', async (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.add(offlineFallbackPage)),
+    caches
+      .open(CACHE)
+      .then((cache) =>
+        cache.addAll([
+          offlineFallbackPage,
+          'index.html',
+          '/js/file.js',
+          '/js/main.js',
+          '/js/storage.js',
+          '/js/task.js',
+          '/js/topic.js',
+          '/js/util.js',
+          '/css/style.css',
+          '/css/modal.css',
+        ]),
+      ),
   );
 });
 
@@ -26,24 +41,41 @@ if (workbox.navigationPreload.isSupported()) {
 }
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith(
-      (async () => {
-        try {
-          const preloadResp = await event.preloadResponse;
+  // if (event.request.mode === 'navigate') {
+  //   event.respondWith(
+  //     (async () => {
+  //       try {
+  //         const preloadResp = await event.preloadResponse;
 
-          if (preloadResp) {
-            return preloadResp;
-          }
+  //         if (preloadResp) {
+  //           return preloadResp;
+  //         }
 
-          const networkResp = await fetch(event.request);
-          return networkResp;
-        } catch (error) {
-          const cache = await caches.open(CACHE);
-          const cachedResp = await cache.match(offlineFallbackPage);
-          return cachedResp;
-        }
-      })(),
-    );
-  }
+  //         const networkResp = await fetch(event.request);
+  //         return networkResp;
+  //       } catch (error) {
+  //         const cache = await caches.open(CACHE);
+  //         const cachedResp = await cache.match(offlineFallbackPage);
+  //         return cachedResp;
+  //       }
+  //     })(),
+  //   );
+  // }
+
+  event.respondWith(
+    caches.match(event.request).then(function (response) {
+      // get cache
+      if (response) {
+        return response;
+      }
+
+      // return cache
+      return fetch(event.request).then(function (response) {
+        return caches.open(CACHE).then(function (cache) {
+          cache.put(event.request.url, response.clone());
+          return response;
+        });
+      });
+    }),
+  );
 });
