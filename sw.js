@@ -54,18 +54,18 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     cacheFirst({
       request: event.request,
-      fallbackUrl: '/offline.html',
+      fallbackUrl: './offline.html',
     }),
   );
 });
 
 // Enable navigation preload
-const enableNavigationPreload = async () => {
-  if (self.registration.navigationPreload) {
-    await self.registration.navigationPreload.enable();
-  }
-};
+// const enableNavigationPreload = async () => {
+//   if (self.registration.navigationPreload) {
+//     await self.registration.navigationPreload.enable();
+//   }
+// };
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(enableNavigationPreload());
-});
+// self.addEventListener('activate', (event) => {
+//   event.waitUntil(enableNavigationPreload());
+// });
