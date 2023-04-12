@@ -75,6 +75,7 @@
 }
 
 .modal-tv-header{
+  padding-top: 15px;
   display: flex;
   height: 20px;
   align-items: center;
@@ -103,6 +104,8 @@
   height: auto;
   box-sizing: border-box;
   padding: 15px 0px;
+  width: auto;
+  display: inline-block;
 }
 
 .modal-tv-topics{
@@ -132,7 +135,7 @@
 }
 
 .modal-tv-create-topic input{
-  width: 85%;
+  width: 80%;
   background-color: #353535;
   outline: none;
   border: none;
@@ -140,4 +143,32 @@
   color: #fff;
   border-radius: 3px;
   font-size: 1rem;
+}
+
+@media  (max-width:600px) {
+ [class^="back"]{
+    align-items: flex-start;
+  }
+
+  .modal-tv-topics{
+    height: 80%;
+  }
+  
+  .modal-tv-create-topic input{
+    width: 70%;
+  }
+
+  .modal-task-view{
+    width: 100vw;
+    height: 80vh;
+    margin: 0;
+  }
+
+  .modal-tv-header{
+    height: 4rem;
+  }
+
+  .modal-tv-header-taskname{
+    font-size: 1.5rem;
+  }
 }

@@ -16,7 +16,7 @@ li {
     color: #fff;
 }
 
-p {
+p,h1,h2,h3,h4 {
     margin: 0;
 }
 
@@ -51,14 +51,17 @@ input[type="file"] {
 .header-title {
     color: #fff;
     text-align: left;
-    padding: 10px 0px;
+    padding: 20px 0px;
     font-size: 2.5rem;
+    margin: 0 auto;
 }
 
 .container {
     max-width: 1000px;
     margin: 0 auto;
 }
+
+
 
 .btn {
     border: none;
@@ -82,7 +85,7 @@ input[type="file"] {
     margin-top: 2rem;
     background-color: #353535;
     padding: 0px 0px;
-    height: 350px;
+    height: 80%;
     overflow: auto;
 }
 
@@ -129,9 +132,70 @@ input[type="file"] {
     justify-content: flex-end;
     align-items: center;
     padding-right: 2rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    padding-bottom: 20px;
 }
 
 .footer h1 {
     font-size: 1.3rem;
     color: #fff;
+    margin: 0;
+}
+
+.tasks{
+height: 60vh;
+}
+
+
+@media  (max-width:1100px) {
+    .container{
+        max-width: 700px;
+    }
+ 
+}
+
+@media  (max-width:800px) {
+    .tasks,.header-title{
+        width: 400px;
+    }
+
+    .header-title{
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+
+    .tasks{
+        height: 70vh;
+        }
+}
+
+@media  (max-height:530px) {
+    .tasks{
+        height: 40vh;
+        }
+
+    .footer{
+        height: 20px;
+        padding-bottom: 30px;
+    }
+
+    .header-title{
+        margin: 0;
+    }
+
+    
+    .tasks-btn-new-task{
+        margin: 0;
+    }
+}
+
+@media  (max-width:450px) {
+    .container{
+        max-width: 350px;
+    }
+
 }
