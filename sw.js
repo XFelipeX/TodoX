@@ -8,16 +8,16 @@ const addResourcesToCache = async (resources) => {
 self.addEventListener('install', (event) => {
   event.waitUntil(
     addResourcesToCache([
-      '/',
-      '/index.html',
-      '/js/file.js',
-      '/js/main.js',
-      '/js/storage.js',
-      '/js/task.js',
-      '/js/topic.js',
-      '/js/util.js',
-      '/css/style.css',
-      '/css/modal.css',
+      './',
+      './index.html',
+      './js/file.js',
+      './js/main.js',
+      './js/storage.js',
+      './js/task.js',
+      './js/topic.js',
+      './js/util.js',
+      './css/style.css',
+      './css/modal.css',
     ]),
   );
 });
