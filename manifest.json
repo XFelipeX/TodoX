@@ -7,7 +7,7 @@
   "orientation": "any",
   "scope": "/",
   "short_name": "todoX",
-  "start_url": "/",
+  "start_url": "/TodoX/",
   "theme_color": "#3b86e8",
   "categories": ["education", "personalization", "productivity", "utilities"],
   "screenshots": [
